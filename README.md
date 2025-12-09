@@ -42,7 +42,7 @@ npm or yarn
 
 1. Clone the Repository
 
-git clone [https://github.com/yourusername/skycast.git](https://github.com/yourusername/skycast.git)
+git clone [https://github.com/abhranilsingharoy-cloud/SkyCast/tree/main](https://github.com/abhranilsingharoy-cloud/SkyCast/tree/main)
 cd skycast
 
 
