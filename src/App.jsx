@@ -106,7 +106,8 @@ const generateMockData = (query, type, units) => {
     list: []
   };
 
-  for (let i = 0; i < 40; i++) {
+  // Generating 7 days of 3-hour data (7 * 8 = 56 items)
+  for (let i = 0; i < 60; i++) {
     const time = new Date(now.getTime() + i * 3 * 60 * 60 * 1000);
     const baseTemp = units === 'metric' ? 22 : 72;
     const fluctuation = Math.sin(i / 4) * 5;
@@ -389,6 +390,11 @@ export default function App() {
     return !localStorage.getItem(WEATHER_API_KEY_STORAGE);
   });
 
+  // --- NEW: Set Website Title ---
+  useEffect(() => {
+    document.title = "SkyCast";
+  }, []);
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -521,29 +527,37 @@ export default function App() {
 
       <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8 relative z-10">
         
-        {/* Header */}
-        <header className="flex justify-between items-center mb-6 pt-2">
-           <button onClick={() => setShowSettings(!showSettings)} className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md transition-colors">
-            <Settings className="w-5 h-5 text-white" />
-          </button>
-          <form onSubmit={handleSearch} className="flex-1 max-w-sm mx-4 relative group">
-            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-              <Search className="w-4 h-4 text-white/60" />
-            </div>
-            <input
-              type="text"
-              value={cityInput}
-              onChange={(e) => setCityInput(e.target.value)}
-              placeholder="Search City"
-              className="w-full bg-white/10 border border-white/10 text-white placeholder-white/60 rounded-full py-2.5 pl-10 pr-10 focus:outline-none focus:bg-white/20 focus:border-white/30 transition-all text-sm font-medium shadow-sm backdrop-blur-sm"
-            />
-            <button type="button" onClick={handleGeoLocation} className="absolute inset-y-0 right-1 flex items-center px-3 hover:text-white text-white/70 transition-colors">
-              <Crosshair className="w-4 h-4" />
-            </button>
-          </form>
-          <a href={weatherData ? `https://www.google.com/search?q=weather+${weatherData.city.name}` : '#'} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md transition-colors">
-             <ExternalLink className="w-5 h-5 text-white" />
-          </a>
+        {/* Header - Centered Search Layout */}
+        <header className="flex flex-col md:flex-row items-center mb-8 pt-2 gap-4 relative justify-center">
+           
+           {/* Branding (Left) */}
+           <div className="flex items-center gap-2 md:absolute md:left-0 md:top-2">
+              <div className="p-2 bg-white/10 rounded-full">
+                <Cloud className="w-5 h-5 text-cyan-300" />
+              </div>
+              <span className="text-xl font-bold tracking-wide">SkyCast</span>
+           </div>
+
+           {/* Search Bar (Center) */}
+           <form onSubmit={handleSearch} className="w-full max-w-md relative group z-10">
+             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+               <Search className="w-4 h-4 text-white/60" />
+             </div>
+             <input
+               type="text"
+               value={cityInput}
+               onChange={(e) => setCityInput(e.target.value)}
+               placeholder="Search City"
+               className="w-full bg-white/10 border border-white/10 text-white placeholder-white/60 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:bg-white/20 focus:border-white/30 transition-all text-sm font-medium shadow-sm backdrop-blur-sm text-center md:text-left"
+             />
+           </form>
+
+           {/* Controls (Right) */}
+           <div className="flex items-center gap-3 md:absolute md:right-0 md:top-2">
+              <button onClick={() => setShowSettings(!showSettings)} className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md transition-colors">
+                <Settings className="w-5 h-5 text-white" />
+              </button>
+           </div>
         </header>
 
         {/* Settings Overlay */}
@@ -730,10 +744,10 @@ export default function App() {
             <GlassCard>
               <div className="flex items-center gap-2 mb-4 opacity-80">
                 <Calendar className="w-4 h-4" />
-                <h3 className="font-semibold text-xs uppercase tracking-wider">5-Day Forecast</h3>
+                <h3 className="font-semibold text-xs uppercase tracking-wider">7-Day Forecast</h3>
               </div>
               <div className="flex overflow-x-auto pb-2 gap-4 scrollbar-hide">
-                {[0, 8, 16, 24, 32].map((offset, i) => {
+                {[0, 8, 16, 24, 32, 40, 48].map((offset, i) => {
                   const dayData = weatherData.list[offset];
                   if (!dayData) return null;
                   return (
