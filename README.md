@@ -4,31 +4,31 @@ SkyCast is a high-performance, visually immersive weather dashboard built with R
 
 # 🚀 Features
 
-Real-Time Weather Data: Fetches live temperature, humidity, wind speed, pressure, and visibility from OpenWeatherMap.
+• Real-Time Weather Data: Fetches live temperature, humidity, wind speed, pressure, and visibility from OpenWeatherMap.
 
-Advanced AQI Monitor: Calculates and displays the Air Quality Index using the official US EPA standard (0-500 scale) with a detailed breakdown of pollutants (PM2.5, PM10, CO, SO2).
+• Advanced AQI Monitor: Calculates and displays the Air Quality Index using the official US EPA standard (0-500 scale) with a detailed breakdown of pollutants (PM2.5, PM10, CO, SO2).
 
-Precision Solar Arc: A custom SVG-based visualization tracking the sun's exact position based on local sunrise/sunset times.
+• Precision Solar Arc: A custom SVG-based visualization tracking the sun's exact position based on local sunrise/sunset times.
 
-Dynamic Visuals: Immersive background effects (rain, snow, clouds, sun rays) that react to live weather conditions.
+• Dynamic Visuals: Immersive background effects (rain, snow, clouds, sun rays) that react to live weather conditions.
 
-7-Day Forecast: Horizontal scrollable forecast for the upcoming week.
+• 7-Day Forecast: Horizontal scrollable forecast for the upcoming week.
 
-Geolocation Support: Automatically detects user location on startup.
+• Geolocation Support: Automatically detects user location on startup.
 
-Demo Mode: Fully functional simulation mode for testing UI features without an API key.
+• Demo Mode: Fully functional simulation mode for testing UI features without an API key.
 
 # 🛠️ Tech Stack
 
-Framework: React (Vite)
+• Framework: React (Vite)
 
-Styling: Tailwind CSS
+• Styling: Tailwind CSS
 
-Icons: Lucide React
+• Icons: Lucide React
 
-Charts: Recharts
+• Charts: Recharts
 
-Data Source: OpenWeatherMap API (Forecast & Air Pollution endpoints)
+• Data Source: OpenWeatherMap API (Forecast & Air Pollution endpoints)
 
 # 📦 Installation & Setup
 
@@ -36,9 +36,9 @@ Follow these steps to get SkyCast running on your local machine.
 
 Prerequisites
 
-Node.js (v16 or higher)
+• Node.js (v16 or higher)
 
-npm or yarn
+• npm or yarn
 
 1. Clone the Repository
 
@@ -81,15 +81,16 @@ Open your browser and navigate to http://localhost:5173.
 
 By default, the app runs in Demo Mode. To access real-time data:
 
-Get a free API key from OpenWeatherMap.
+1. Get a free API key from OpenWeatherMap.
 
-Click the Settings (Gear Icon) in the SkyCast dashboard.
+2. Click the Settings (Gear Icon) in the SkyCast dashboard.
 
-Toggle "API Source" to Live API.
+3. Toggle "API Source" to Live API.
 
-Paste your API key. The app will save it locally in your browser.
+4. Paste your API key. The app will save it locally in your browser.
 
 # 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request
-   Made by Abhranil Singha Roy.
+  
+ Made by Abhranil Singha Roy.
