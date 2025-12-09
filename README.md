@@ -49,7 +49,7 @@ cd skycast
 2. Install Dependencies
 
 npm install
-# Ensures the specific icon and chart libraries are added
+Ensures the specific icon and chart libraries are added
 npm install lucide-react recharts
 
 
