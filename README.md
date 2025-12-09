@@ -2,7 +2,7 @@
 
 SkyCast is a high-performance, visually immersive weather dashboard built with React. It features real-time weather tracking, a precision solar cycle arc, advanced air quality monitoring (US EPA standard), and a dynamic background system that adapts to current weather conditions.
 
-🚀 Features
+# 🚀 Features
 
 Real-Time Weather Data: Fetches live temperature, humidity, wind speed, pressure, and visibility from OpenWeatherMap.
 
@@ -18,7 +18,7 @@ Geolocation Support: Automatically detects user location on startup.
 
 Demo Mode: Fully functional simulation mode for testing UI features without an API key.
 
-🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 Framework: React (Vite)
 
@@ -30,7 +30,7 @@ Charts: Recharts
 
 Data Source: OpenWeatherMap API (Forecast & Air Pollution endpoints)
 
-📦 Installation & Setup
+# 📦 Installation & Setup
 
 Follow these steps to get SkyCast running on your local machine.
 
@@ -77,7 +77,7 @@ npm run dev
 
 Open your browser and navigate to http://localhost:5173.
 
-🔑 API Configuration
+# 🔑 API Configuration
 
 By default, the app runs in Demo Mode. To access real-time data:
 
@@ -89,10 +89,7 @@ Toggle "API Source" to Live API.
 
 Paste your API key. The app will save it locally in your browser.
 
-🤝 Contributing
+# 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-📄 License
-
-This project is open-source and available under the MIT License.
+Contributions are welcome! Please feel free to submit a Pull Request
+   Made by Abhranil Singha Roy.
