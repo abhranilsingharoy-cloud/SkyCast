@@ -39,7 +39,6 @@ import {
 const WEATHER_API_KEY_STORAGE = 'tech_weather_api_key';
 
 // --- US EPA AQI Calculation Standard ---
-// Calculates US AQI from PM2.5 concentration (ug/m3)
 const calculateUSAQI = (pm25) => {
   const c = Math.floor(10 * pm25) / 10;
   if (c < 0) return 0;
@@ -73,17 +72,13 @@ const getAQIInfo = (aqi) => {
   return { label: 'Hazardous', color: 'text-red-800', barColor: 'bg-red-800' };
 };
 
-// Helper to position the indicator on the 6-segment bar
 const getAQIPosition = (aqi) => {
-  // We map 6 AQI categories to 0-100% width
-  // Each category takes up 16.66% of the bar
   const segment = 100 / 6;
-  
   if (aqi <= 50) return (aqi / 50) * segment;
   if (aqi <= 100) return segment + ((aqi - 50) / 50) * segment;
   if (aqi <= 150) return segment * 2 + ((aqi - 100) / 50) * segment;
   if (aqi <= 200) return segment * 3 + ((aqi - 150) / 50) * segment;
-  if (aqi <= 300) return segment * 4 + ((aqi - 200) / 100) * segment; // Note: wider range
+  if (aqi <= 300) return segment * 4 + ((aqi - 200) / 100) * segment;
   return Math.min(segment * 5 + ((aqi - 300) / 200) * segment, 100);
 };
 
@@ -106,7 +101,6 @@ const generateMockData = (query, type, units) => {
     list: []
   };
 
-  // Generating 7 days of 3-hour data (7 * 8 = 56 items)
   for (let i = 0; i < 60; i++) {
     const time = new Date(now.getTime() + i * 3 * 60 * 60 * 1000);
     const baseTemp = units === 'metric' ? 22 : 72;
@@ -145,17 +139,14 @@ const generateMockData = (query, type, units) => {
   return data;
 };
 
-// Randomized Mock AQI
 const generateMockAQI = () => {
-  // Generate random PM2.5 to simulate different conditions
-  // 60% chance of good/moderate, 40% chance of bad
   const isBadDay = Math.random() > 0.6;
   const pm25 = isBadDay ? Math.random() * 150 + 50 : Math.random() * 40 + 5;
   const pm10 = pm25 * (1.2 + Math.random() * 0.5);
   
   return {
     list: [{
-      main: { aq: 1 }, // Index ignored, we calculate from components
+      main: { aq: 1 }, 
       components: {
         co: 200 + Math.random() * 200,
         no: 0.5,
@@ -184,21 +175,16 @@ const getWindDirection = (deg) => {
   return directions[Math.round(deg / 45) % 8];
 };
 
-// --- Visual Effects Component ---
-
 const WeatherEffects = ({ weather, isDay = true }) => {
   const condition = weather?.main?.toLowerCase() || '';
   const styles = `
     @keyframes fall {
       0% { transform: translateY(-10vh) translateX(-10px); opacity: 0; }
       10% { opacity: 1; }
-      90% { opacity: 1; }
       100% { transform: translateY(100vh) translateX(10px); opacity: 0; }
     }
     @keyframes drift {
       0% { transform: translateX(-100%); opacity: 0; }
-      10% { opacity: 0.8; }
-      90% { opacity: 0.8; }
       100% { transform: translateX(100vw); opacity: 0; }
     }
     @keyframes pulse-sun {
@@ -255,8 +241,6 @@ const WeatherEffects = ({ weather, isDay = true }) => {
   );
 };
 
-// --- Components ---
-
 const GlassCard = ({ children, className = "" }) => (
   <div className={`
     bg-black/20 backdrop-blur-md 
@@ -288,7 +272,6 @@ const StatItem = ({ icon: Icon, label, value, subLabel, color="text-blue-400" })
   </div>
 );
 
-// --- Solar Arc Component ---
 const SolarArc = ({ sunrise, sunset }) => {
   const now = Math.floor(Date.now() / 1000);
   const totalDay = sunset - sunrise;
@@ -390,7 +373,6 @@ export default function App() {
     return !localStorage.getItem(WEATHER_API_KEY_STORAGE);
   });
 
-  // --- NEW: Set Website Title ---
   useEffect(() => {
     document.title = "SkyCast";
   }, []);
@@ -421,7 +403,6 @@ export default function App() {
 
     try {
       if (useDemoMode || !apiKey) {
-        // DEMO MODE
         const mockWeather = generateMockData(query, type, units);
         const mockAQI = generateMockAQI();
         setWeatherData(mockWeather);
@@ -431,7 +412,6 @@ export default function App() {
         else setCityInput(mockWeather.city.name);
 
       } else {
-        // REAL API
         let url = `https://api.openweathermap.org/data/2.5/forecast?units=${units}&appid=${apiKey}`;
         if (type === 'city') url += `&q=${query}`;
         else if (type === 'coords') url += `&lat=${query.lat}&lon=${query.lon}`;
@@ -493,7 +473,6 @@ export default function App() {
   const current = weatherData ? weatherData.list[0] : null;
   const currentAQI = aqiData ? aqiData.list[0] : null;
   
-  // Calculate accurate US AQI from PM2.5
   const preciseAQI = currentAQI && currentAQI.components && currentAQI.components.pm2_5 
     ? calculateUSAQI(currentAQI.components.pm2_5) 
     : (currentAQI ? currentAQI.main.aq * 20 : 0);
@@ -517,7 +496,6 @@ export default function App() {
   return (
     <div className={`min-h-screen text-white font-sans transition-all duration-700 ease-in-out relative overflow-hidden ${getBgGradient()}`}>
       
-      {/* Dynamic Weather Background Effects */}
       {current && (
         <WeatherEffects 
           weather={current.weather[0]} 
@@ -527,10 +505,8 @@ export default function App() {
 
       <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8 relative z-10">
         
-        {/* Header - Centered Search Layout */}
         <header className="flex flex-col md:flex-row items-center mb-8 pt-2 gap-4 relative justify-center">
            
-           {/* Branding (Left) */}
            <div className="flex items-center gap-2 md:absolute md:left-0 md:top-2">
               <div className="p-2 bg-white/10 rounded-full">
                 <Cloud className="w-5 h-5 text-cyan-300" />
@@ -538,7 +514,6 @@ export default function App() {
               <span className="text-xl font-bold tracking-wide">SkyCast</span>
            </div>
 
-           {/* Search Bar (Center) */}
            <form onSubmit={handleSearch} className="w-full max-w-md relative group z-10">
              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                <Search className="w-4 h-4 text-white/60" />
@@ -552,7 +527,6 @@ export default function App() {
              />
            </form>
 
-           {/* Controls (Right) */}
            <div className="flex items-center gap-3 md:absolute md:right-0 md:top-2">
               <button onClick={() => setShowSettings(!showSettings)} className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md transition-colors">
                 <Settings className="w-5 h-5 text-white" />
@@ -560,7 +534,6 @@ export default function App() {
            </div>
         </header>
 
-        {/* Settings Overlay */}
         {showSettings && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
             <div className="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl text-slate-800">
@@ -594,7 +567,6 @@ export default function App() {
           </div>
         )}
 
-        {/* Loading / Error / Content */}
         {loading ? (
           <div className="h-[60vh] flex flex-col items-center justify-center">
             <RefreshCw className="w-10 h-10 animate-spin opacity-70 mb-4" />
@@ -609,7 +581,6 @@ export default function App() {
         ) : weatherData && (
           <div className="space-y-6 animate-in slide-in-from-bottom-8 duration-700 fade-in">
             
-            {/* Top Hero: Temp + Chart */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                 <div className="flex items-center gap-2 mb-2 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md self-center lg:self-start">
@@ -628,7 +599,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Chart */}
               <GlassCard className="h-[250px] w-full flex flex-col justify-center">
                 <div className="flex items-center gap-2 mb-4 opacity-80">
                   <Activity className="w-4 h-4" />
@@ -650,7 +620,6 @@ export default function App() {
               </GlassCard>
             </div>
 
-            {/* Main Stats Grid - 3x2 Layout like Image */}
             <GlassCard>
               <div className="grid grid-cols-3 divide-x divide-white/10 gap-y-6">
                 <StatItem icon={ThermometerSun} label="Feels Like" value={`${Math.round(current.main.feels_like)}°`} color="text-orange-300" />
@@ -665,10 +634,8 @@ export default function App() {
               </div>
             </GlassCard>
 
-            {/* AQI + Sun Times Row */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
-              {/* Advanced AQI Card */}
               {currentAQI && aqiInfo && (
                 <GlassCard className="flex flex-col justify-between">
                    <div className="flex justify-between items-start mb-6">
@@ -679,9 +646,7 @@ export default function App() {
                      <FlaskConical className={`w-8 h-8 ${aqiInfo.color}`} />
                    </div>
 
-                   {/* Main Bar */}
                    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-8 relative">
-                      {/* Accurate 6-Color Segment Bar */}
                       <div className="absolute top-0 bottom-0 left-0 w-[16.6%] bg-emerald-400" />
                       <div className="absolute top-0 bottom-0 left-[16.6%] w-[16.6%] bg-yellow-400" />
                       <div className="absolute top-0 bottom-0 left-[33.2%] w-[16.6%] bg-orange-400" />
@@ -689,14 +654,12 @@ export default function App() {
                       <div className="absolute top-0 bottom-0 left-[66.4%] w-[16.6%] bg-purple-500" />
                       <div className="absolute top-0 bottom-0 left-[83%] w-[17%] bg-red-800" />
                       
-                      {/* Accurate Indicator Line */}
                       <div 
                         className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_black] transition-all duration-1000 ease-out" 
                         style={{ left: `${Math.min(aqiPosition, 98)}%` }} 
                       />
                    </div>
 
-                   {/* Pollutant Bars */}
                    <div className="grid grid-cols-4 gap-4 text-center">
                       <div className="flex flex-col gap-1">
                         <span className="text-xs text-white/50">PM2.5</span>
@@ -730,7 +693,6 @@ export default function App() {
                 </GlassCard>
               )}
 
-              {/* Sun Cycle Card */}
               <GlassCard className="flex flex-col justify-between">
                 <div className="mb-4">
                   <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">Solar Cycle</h3>
@@ -740,7 +702,6 @@ export default function App() {
 
             </div>
 
-            {/* Daily Forecast List */}
             <GlassCard>
               <div className="flex items-center gap-2 mb-4 opacity-80">
                 <Calendar className="w-4 h-4" />
