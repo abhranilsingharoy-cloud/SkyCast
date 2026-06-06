@@ -22,7 +22,7 @@ SkyCast was built to push the boundaries of what a weather dashboard can look li
 ## ✨ Key Features
 
 - **Dynamic 3D Weather Engine**: Powered by `three.js` and `@react-three/fiber`. Watch 3D rain fall, volumetric clouds drift, and dynamic lighting shift based on actual weather conditions.
-- **Smart Auto-Geolocation**: Instantly detects and prompts for your exact GPS coordinates to deliver hyper-local weather data on load.
+- **Smart Auto-Geolocation & Google Maps**: Instantly detects and prompts for your exact GPS coordinates. The location badge serves as a direct, clickable link to your exact coordinates on Google Maps.
 - **Hyper-Glassmorphic UI**: Premium dashboard aesthetics using dynamic gradients, frosted glass translucency, and modern typography.
 - **Advanced AQI Gauge**: Features a custom-built SVG semi-circle gauge to visualize the Air Quality Index alongside granular pollutant breakdowns (PM2.5, PM10, CO, SO2).
 - **Custom Lifestyle Indices**: A smart algorithm calculates your local suitability for Outdoor Activities, Stargazing, Fishing, Sailing, and more based on live temperature, wind, and humidity.
