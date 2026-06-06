@@ -243,10 +243,7 @@ const WeatherEffects = ({ weather, isDay = true }) => {
 
 const GlassCard = ({ children, className = "" }) => (
   <div className={`
-    bg-black/20 backdrop-blur-md 
-    border border-white/10 
-    rounded-3xl p-6 
-    shadow-lg
+    premium-glass p-6 md:p-8 
     z-10 relative
     ${className}
   `}>
@@ -481,16 +478,16 @@ export default function App() {
   const aqiPosition = getAQIPosition(preciseAQI);
 
   const getBgGradient = () => {
-    if (!current) return "bg-gradient-to-br from-blue-400 to-blue-600";
+    if (!current) return "bg-[#030712]";
     const condition = current.weather[0].main.toLowerCase();
     
-    if (condition.includes('rain') || condition.includes('drizzle')) return "bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900";
-    if (condition.includes('snow')) return "bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600";
-    if (condition.includes('cloud')) return "bg-gradient-to-br from-slate-500 to-gray-600";
-    if (condition.includes('clear')) return "bg-gradient-to-br from-sky-400 to-blue-600";
-    if (condition.includes('thunder')) return "bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900";
+    if (condition.includes('rain') || condition.includes('drizzle')) return "bg-[#030712] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,58,138,0.4),rgba(255,255,255,0))]";
+    if (condition.includes('snow')) return "bg-[#0f172a] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(148,163,184,0.25),rgba(255,255,255,0))]";
+    if (condition.includes('cloud')) return "bg-[#020617] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(71,85,105,0.3),rgba(255,255,255,0))]";
+    if (condition.includes('clear')) return "bg-[#030712] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(56,189,248,0.25),rgba(255,255,255,0))]";
+    if (condition.includes('thunder')) return "bg-[#020617] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(76,29,149,0.35),rgba(255,255,255,0))]";
     
-    return "bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500";
+    return "bg-[#030712] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(139,92,246,0.25),rgba(255,255,255,0))]";
   };
 
   return (
@@ -581,20 +578,20 @@ export default function App() {
         ) : weatherData && (
           <div className="space-y-6 animate-in slide-in-from-bottom-8 duration-700 fade-in">
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div className="flex items-center gap-2 mb-2 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md self-center lg:self-start">
-                  <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-semibold tracking-wide">{weatherData.city.name}</span>
+                <div className="flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg self-center lg:self-start transition-all hover:bg-white/10">
+                  <MapPin className="w-4 h-4 text-sky-400" />
+                  <span className="text-sm font-semibold tracking-widest uppercase text-sky-100">{weatherData.city.name}</span>
                 </div>
-                <div className="relative mt-4">
-                  <h1 className="text-[7rem] leading-none font-bold tracking-tighter drop-shadow-2xl">
+                <div className="relative mt-6 mb-8 animate-float">
+                  <h1 className="text-[9rem] leading-[0.8] font-extrabold tracking-tighter text-glow">
                     {Math.round(current.main.temp)}°
                   </h1>
-                  <p className="text-2xl font-medium capitalize opacity-90 pl-2">{current.weather[0].description}</p>
-                  <div className="flex gap-4 text-white/70 font-medium pl-2 mt-2">
-                    <span>H: {Math.round(current.main.temp_max)}°</span>
-                    <span>L: {Math.round(current.main.temp_min)}°</span>
+                  <p className="text-3xl font-light capitalize opacity-90 pl-4 mt-6 tracking-wide text-sky-200">{current.weather[0].description}</p>
+                  <div className="flex gap-6 text-white/80 font-medium pl-4 mt-4 text-lg">
+                    <span className="flex items-center gap-1.5"><ThermometerSun className="w-5 h-5 text-rose-400" /> {Math.round(current.main.temp_max)}°</span>
+                    <span className="flex items-center gap-1.5"><ThermometerSun className="w-5 h-5 text-sky-400" /> {Math.round(current.main.temp_min)}°</span>
                   </div>
                 </div>
               </div>

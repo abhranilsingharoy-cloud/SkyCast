@@ -1,96 +1,71 @@
-# SkyCast
+<div align="center">
+  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/cloud-lightning.svg" width="80" height="80" alt="SkyCast Logo">
+  <h1>SkyCast</h1>
+  <p><strong>A High-Performance, Visually Immersive Weather Dashboard</strong></p>
 
-SkyCast is a high-performance, visually immersive weather dashboard built with React. It features real-time weather tracking, a precision solar cycle arc, advanced air quality monitoring (US EPA standard), and a dynamic background system that adapts to current weather conditions.
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </p>
+</div>
 
-# 🚀 Features
+---
 
-• Real-Time Weather Data: Fetches live temperature, humidity, wind speed, pressure, and visibility from OpenWeatherMap.
+SkyCast is a modern, responsive, and dynamic weather dashboard that delivers real-time weather data with a premium glassmorphic UI. It goes beyond simple forecasting by featuring advanced US EPA standard air quality monitoring, a dynamic solar cycle tracker, and immersive visual effects that react to local weather conditions.
 
-• Advanced AQI Monitor: Calculates and displays the Air Quality Index using the official US EPA standard (0-500 scale) with a detailed breakdown of pollutants (PM2.5, PM10, CO, SO2).
+## ✨ Key Features
 
-• Precision Solar Arc: A custom SVG-based visualization tracking the sun's exact position based on local sunrise/sunset times.
+- **Real-Time Data**: Instant access to temperature, humidity, wind, and pressure via OpenWeatherMap.
+- **Advanced AQI Monitor**: Calculates and visualizes the Air Quality Index (US EPA 0-500 scale) with granular pollutant breakdowns (PM2.5, PM10, CO, SO2).
+- **Hyper-Glassmorphic UI**: Premium aesthetics using dynamic gradients, glass-like translucency, and modern typography (`Outfit` font).
+- **Dynamic Visuals**: Immersive, CSS-driven background effects (rain, snow, clouds, sun rays) that adapt to live weather.
+- **Precision Solar Arc**: Real-time SVG visualization of the sun's trajectory based on precise sunrise and sunset times.
+- **7-Day Forecast**: Quick-glance, scrollable forecast for the week ahead.
+- **Demo Mode**: Fully functional simulation mode for UI evaluation without requiring an API key.
 
-• Dynamic Visuals: Immersive background effects (rain, snow, clouds, sun rays) that react to live weather conditions.
+## 🛠️ Tech Stack
 
-• 7-Day Forecast: Horizontal scrollable forecast for the upcoming week.
+- **Framework**: [React 18](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Data Source**: [OpenWeatherMap API](https://openweathermap.org/api)
 
-• Geolocation Support: Automatically detects user location on startup.
+## 📦 Installation & Setup
 
-• Demo Mode: Fully functional simulation mode for testing UI features without an API key.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/abhranilsingharoy-cloud/SkyCast.git
+   cd SkyCast
+   ```
 
-# 🛠️ Tech Stack
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-• Framework: React (Vite)
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to `http://localhost:5173`.
 
-• Styling: Tailwind CSS
+## 🔑 API Configuration
 
-• Icons: Lucide React
+SkyCast runs in **Demo Mode** by default, generating realistic mock data. To connect real-time data:
 
-• Charts: Recharts
+1. Obtain a free API key from [OpenWeatherMap](https://openweathermap.org/api).
+2. Click the **Settings (Gear Icon)** in the dashboard.
+3. Switch the "API Source" to **Live API**.
+4. Paste your API key and click "Save Changes". The key is stored securely in your browser's local storage.
 
-• Data Source: OpenWeatherMap API (Forecast & Air Pollution endpoints)
+## 🤝 Contributing
 
-# 📦 Installation & Setup
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/abhranilsingharoy-cloud/SkyCast/issues).
 
-Follow these steps to get SkyCast running on your local machine.
+---
 
-Prerequisites
-
-• Node.js (v16 or higher)
-
-• npm or yarn
-
-1. Clone the Repository
-
-git clone [https://github.com/abhranilsingharoy-cloud/SkyCast/tree/main](https://github.com/abhranilsingharoy-cloud/SkyCast/tree/main)
-cd skycast
-
-
-2. Install Dependencies
-
-npm install
-Ensures the specific icon and chart libraries are added
-npm install lucide-react recharts
-
-
-3. Tailwind Configuration
-
-Ensure your tailwind.config.js is set up to scan your source files:
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-
-4. Run the Development Server
-
-npm run dev
-
-
-Open your browser and navigate to http://localhost:5173.
-
-# 🔑 API Configuration
-
-By default, the app runs in Demo Mode. To access real-time data:
-
-1. Get a free API key from OpenWeatherMap.
-
-2. Click the Settings (Gear Icon) in the SkyCast dashboard.
-
-3. Toggle "API Source" to Live API.
-
-4. Paste your API key. The app will save it locally in your browser.
-
-# 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request
-  
- Made by Abhranil Singha Roy.
+<div align="center">
+  <p>Made with ❤️ by Abhranil Singha Roy.</p>
+</div>
