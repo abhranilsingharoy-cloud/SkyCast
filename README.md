@@ -1,10 +1,11 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/cloud-lightning.svg" width="80" height="80" alt="SkyCast Logo">
-  <h1>SkyCast</h1>
-  <p><strong>A High-Performance, Visually Immersive Weather Dashboard</strong></p>
+  <h1>SkyCast 3D</h1>
+  <p><strong>A Next-Generation, 3D Immersive Weather Dashboard</strong></p>
 
   <p>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js" />
     <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   </p>
@@ -12,28 +13,28 @@
 
 ---
 
-SkyCast is a modern, responsive, and dynamic weather dashboard that delivers real-time weather data with a premium glassmorphic UI. It goes beyond simple forecasting by featuring advanced US EPA standard air quality monitoring, a dynamic solar cycle tracker, and immersive visual effects that react to local weather conditions.
+SkyCast is a state-of-the-art weather web application designed with a premium, hyper-glassmorphic aesthetic. It utilizes React Three Fiber to render immersive, dynamic 3D weather environments that react to live meteorological data in real-time. 
 
 ## 📖 About
 
-SkyCast was built to provide an immersive and highly accurate weather monitoring experience. By combining real-time API data with a hyper-glassmorphic UI, it aims to deliver not just numbers, but a visual representation of the sky right on your screen. Whether you are tracking a storm or checking the air quality, SkyCast makes meteorological data beautiful and accessible.
+SkyCast was built to push the boundaries of what a weather dashboard can look like. By combining real-time API data with a 3D WebGL rendering engine, it delivers not just numbers, but a breathtaking visual representation of the sky right on your screen. Whether you are tracking a 3D thunderstorm, monitoring detailed air quality metrics, or checking the custom lifestyle indices, SkyCast makes meteorological data beautiful and highly interactive.
 
 ## ✨ Key Features
 
-- **Real-Time Data**: Instant access to temperature, humidity, wind, and pressure via OpenWeatherMap.
-- **Advanced AQI Monitor**: Calculates and visualizes the Air Quality Index (US EPA 0-500 scale) with granular pollutant breakdowns (PM2.5, PM10, CO, SO2).
-- **Hyper-Glassmorphic UI**: Premium aesthetics using dynamic gradients, glass-like translucency, and modern typography (`Outfit` font).
-- **Dynamic Visuals**: Immersive, CSS-driven background effects (rain, snow, clouds, sun rays) that adapt to live weather.
-- **Precision Solar Arc**: Real-time SVG visualization of the sun's trajectory based on precise sunrise and sunset times.
-- **7-Day Forecast**: Quick-glance, scrollable forecast for the week ahead.
-- **Demo Mode**: Fully functional simulation mode for UI evaluation without requiring an API key.
+- **Dynamic 3D Weather Engine**: Powered by `three.js` and `@react-three/fiber`. Watch 3D rain fall, volumetric clouds drift, and dynamic lighting shift based on actual weather conditions.
+- **Smart Auto-Geolocation**: Instantly detects and prompts for your exact GPS coordinates to deliver hyper-local weather data on load.
+- **Hyper-Glassmorphic UI**: Premium dashboard aesthetics using dynamic gradients, frosted glass translucency, and modern typography.
+- **Advanced AQI Gauge**: Features a custom-built SVG semi-circle gauge to visualize the Air Quality Index alongside granular pollutant breakdowns (PM2.5, PM10, CO, SO2).
+- **Custom Lifestyle Indices**: A smart algorithm calculates your local suitability for Outdoor Activities, Stargazing, Fishing, Sailing, and more based on live temperature, wind, and humidity.
+- **Precision Solar Arc**: Real-time visualization of the sun and moon trajectory based on precise local sunrise and sunset times.
+- **Interactive Forecasts**: Seamlessly merged hourly temperature line charts and a clean vertical 7-day forecast.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [React 18](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **3D Engine**: [Three.js](https://threejs.org/) + [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Charts**: [Recharts](https://recharts.org/)
 - **Data Source**: [OpenWeatherMap API](https://openweathermap.org/api)
 
 ## 📦 Installation & Setup
@@ -57,7 +58,7 @@ SkyCast was built to provide an immersive and highly accurate weather monitoring
 
 ## 🔑 API Configuration
 
-SkyCast runs in **Demo Mode** by default, generating realistic mock data. To connect real-time data:
+SkyCast runs in **Demo Mode** by default, generating highly realistic mock data so you can experience the 3D features immediately. To connect real-time data:
 
 1. Obtain a free API key from [OpenWeatherMap](https://openweathermap.org/api).
 2. Click the **Settings (Gear Icon)** in the dashboard.
@@ -70,11 +71,11 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 🏷️ Recommended GitHub Topics
 
-To increase the visibility of this project, consider adding the following topics in your GitHub repository settings:
-`react` `vite` `tailwind-css` `weather-app` `weather-dashboard` `glassmorphism` `ui-ux` `openweathermap-api` `recharts` `frontend-development`
+`react` `threejs` `react-three-fiber` `webgl` `tailwind-css` `weather-dashboard` `glassmorphism` `ui-ux` `3d-animations` `openweathermap-api`
 
 ---
 
 <div align="center">
-  <p><strong>Developed by Abhranil Singha Roy</strong></p>
+  <h3>👨‍💻 Developed by Abhranil Singha Roy</h3>
+  <p>Building the future of web interfaces.</p>
 </div>
