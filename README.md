@@ -14,6 +14,10 @@
 
 SkyCast is a modern, responsive, and dynamic weather dashboard that delivers real-time weather data with a premium glassmorphic UI. It goes beyond simple forecasting by featuring advanced US EPA standard air quality monitoring, a dynamic solar cycle tracker, and immersive visual effects that react to local weather conditions.
 
+## 📖 About
+
+SkyCast was built to provide an immersive and highly accurate weather monitoring experience. By combining real-time API data with a hyper-glassmorphic UI, it aims to deliver not just numbers, but a visual representation of the sky right on your screen. Whether you are tracking a storm or checking the air quality, SkyCast makes meteorological data beautiful and accessible.
+
 ## ✨ Key Features
 
 - **Real-Time Data**: Instant access to temperature, humidity, wind, and pressure via OpenWeatherMap.
@@ -64,8 +68,13 @@ SkyCast runs in **Demo Mode** by default, generating realistic mock data. To con
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/abhranilsingharoy-cloud/SkyCast/issues).
 
+## 🏷️ Recommended GitHub Topics
+
+To increase the visibility of this project, consider adding the following topics in your GitHub repository settings:
+`react` `vite` `tailwind-css` `weather-app` `weather-dashboard` `glassmorphism` `ui-ux` `openweathermap-api` `recharts` `frontend-development`
+
 ---
 
 <div align="center">
-  <p>Made with ❤️ by Abhranil Singha Roy.</p>
+  <p><strong>Developed by Abhranil Singha Roy</strong></p>
 </div>
