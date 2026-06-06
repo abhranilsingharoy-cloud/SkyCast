@@ -599,10 +599,17 @@ export default function App() {
           <div className="space-y-6 animate-in slide-in-from-bottom-8 duration-700 fade-in pb-10">
             
             <div className="flex flex-col items-center mb-10 pt-4">
-              <div className="flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg transition-all hover:bg-white/10">
-                <MapPin className="w-4 h-4 text-sky-400" />
+              <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${weatherData.city.coord.lat},${weatherData.city.coord.lon}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg transition-all hover:bg-white/20 hover:scale-105 cursor-pointer group"
+                title="View on Google Maps"
+              >
+                <MapPin className="w-4 h-4 text-sky-400 group-hover:animate-bounce" />
                 <span className="text-sm font-semibold tracking-widest uppercase text-sky-100">{weatherData.city.name}</span>
-              </div>
+                <ExternalLink className="w-3 h-3 text-sky-400/50 ml-1 group-hover:text-sky-400 transition-colors" />
+              </a>
               <div className="relative mt-2 animate-float">
                 <h1 className="text-[8rem] md:text-[10rem] leading-[0.85] font-extrabold tracking-tighter text-glow text-center">
                   {Math.round(current.main.temp)}°
