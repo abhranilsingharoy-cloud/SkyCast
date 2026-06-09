@@ -69,10 +69,6 @@ SkyCast runs in **Demo Mode** by default, generating highly realistic mock data 
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/abhranilsingharoy-cloud/SkyCast/issues).
 
-## 🏷️ Recommended GitHub Topics
-
-`react` `threejs` `react-three-fiber` `webgl` `tailwind-css` `weather-dashboard` `glassmorphism` `ui-ux` `3d-animations` `openweathermap-api`
-
 ---
 
 <div align="center">
